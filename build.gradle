@@ -43,9 +43,10 @@ ext {
     mockitoVersion = "1.10.19"
 }
 
-apply plugin: "jacoco"
-
-repositories {
-  mavenCentral()
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
 }
-
