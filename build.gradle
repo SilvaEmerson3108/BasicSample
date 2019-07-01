@@ -45,16 +45,4 @@ ext {
 
 apply plugin: 'jacoco'
 
-jacocoTestReport{
-    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-    reports {
-        xml.enabled false
-        csv.enabled false
-        html.destination "app/reports/jacoco/html"
-    }
-    executionData = files('build/jacoco/test.exec')
-}
 
-test {
-    finalizedBy jacocoTestReport
-}
