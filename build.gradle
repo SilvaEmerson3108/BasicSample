@@ -43,8 +43,18 @@ ext {
     mockitoVersion = "1.10.19"
 }
 
-apply plugin: "jacoco"
-jacoco {
-    toolVersion = "0.7.1.201405082137"
-    reportsDir = file("$buildDir/customJacocoReportDir")
+apply plugin: 'jacoco'
+
+jacocoTestReport{
+    additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "app/reports/jacoco/html"
+    }
+    executionData = files('build/jacoco/test.exec')
+}
+
+test {
+    finalizedBy jacocoTestReport
 }
