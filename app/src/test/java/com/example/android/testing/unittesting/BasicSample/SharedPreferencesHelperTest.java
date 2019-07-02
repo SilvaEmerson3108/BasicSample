@@ -29,8 +29,6 @@ import android.content.SharedPreferences;
 
 import java.util.Calendar;
 
-import org.jacoco.core;
-import org.jacoco.core.test;
 
 
 /**
