@@ -29,6 +29,9 @@ import android.content.SharedPreferences;
 
 import java.util.Calendar;
 
+import org.jacoco.core;
+import org.jacoco.core.test;
+
 
 /**
  * Unit tests for the {@link SharedPreferencesHelper} that mocks {@link SharedPreferences}.
