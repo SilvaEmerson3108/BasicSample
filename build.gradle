@@ -16,16 +16,17 @@
 
 apply plugin: 'java'
 apply plugin: 'jacoco'
-
- apply plugin: 'jacoco'
- jacocoTestReport {
-   reports {
-   xml.enabled false
-   csv.enabled false
-   html.destination "app/jacocoHtml"
- }
+plugins {
+    id 'jacoco'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+        csv.enabled true
+    }
+}
 apply plugin: 'application'
 
 mainClassName = 'com.example.android.testing.unittesting.BasicSample'
