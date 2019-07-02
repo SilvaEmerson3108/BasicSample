@@ -43,6 +43,12 @@ ext {
     mockitoVersion = "1.10.19"
 }
 
-apply plugin: 'jacoco'
+android.testOptions {
+    unitTests.all {
+        jacoco {
+            includeNoLocationClasses = true
+        }
+    }
+}
 
 
