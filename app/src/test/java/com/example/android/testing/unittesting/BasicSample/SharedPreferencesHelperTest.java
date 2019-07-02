@@ -28,9 +28,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import android.content.SharedPreferences;
 
 import java.util.Calendar;
-import org.jacoco.agent;
-
-
 
 /**
  * Unit tests for the {@link SharedPreferencesHelper} that mocks {@link SharedPreferences}.
