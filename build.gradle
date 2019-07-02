@@ -20,12 +20,6 @@ apply plugin: 'application'
 
 mainClassName = 'com.example.android.testing.unittesting.BasicSample'
 
-
-
-plugins {
-    id 'jacoco'
-}
-
 jacoco {
     toolVersion = "0.8.3"
 }
