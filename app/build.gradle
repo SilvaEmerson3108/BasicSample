@@ -14,10 +14,20 @@
  * limitations under the License.
  */
 
- apply plugin: 'jacoco'
-jacoco {
-    toolVersion = "0.8.3"
+plugins {
+    id 'java'
+    id 'jacoco'
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled true
+        csv.enabled true
+    }
+}
+
+
 
 apply plugin: 'com.android.application'
 
