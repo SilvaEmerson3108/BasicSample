@@ -16,6 +16,16 @@
 
 apply plugin: 'java'
 apply plugin: 'jacoco'
+
+ apply plugin: 'jacoco'
+ jacocoTestReport {
+   reports {
+   xml.enabled false
+   csv.enabled false
+   html.destination "app/jacocoHtml"
+ }
+}
+
 apply plugin: 'application'
 
 mainClassName = 'com.example.android.testing.unittesting.BasicSample'
@@ -24,12 +34,7 @@ jacoco {
     toolVersion = "0.8.3"
 }
 
-jacocoTestReport {
-    reports {
-        xml.enabled false
-        csv.enabled false
-    }
-}
+
 
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
