@@ -20,7 +20,6 @@ jacoco {
     toolVersion = "0.8.3"
 }
 
-mainClassName = 'com.example.android.testing.unittesting.BasicSample'
 
 jar {
     manifest {
