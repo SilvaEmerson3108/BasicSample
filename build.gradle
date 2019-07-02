@@ -43,12 +43,3 @@ ext {
     mockitoVersion = "1.10.19"
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'jacoco'
-
-jacoco {
-    toolVersion = '0.8.0'
-}
-
-
-
