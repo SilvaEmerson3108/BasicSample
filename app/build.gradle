@@ -58,10 +58,5 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    dependencies {
-        classpath 'com.vanniktech:gradle-android-junit-jacoco-plugin:0.11.0'
-    }
-}
+   
 
-apply plugin: 'com.android.tools.build:gradle:2.3.3.'
-apply plugin: 'com.vanniktech.android.junit.jacoco'
