@@ -21,8 +21,8 @@ apply plugin: 'jacoco'
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
   //  sourceDirectories = files([mainSrc])
-    classDirectories = files([debugTree])
-    executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+   // classDirectories = files([debugTree])
+   // executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
 }
 
 jacoco {
