@@ -46,9 +46,6 @@ android {
     }
     productFlavors {
     }
-    debug {
-        testCoverageEnabled true
-    }
 }
 
 dependencies {
