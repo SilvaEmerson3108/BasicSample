@@ -18,22 +18,15 @@ apply plugin: 'java'
 apply plugin: 'jacoco'
 
 
-apply plugin: 'jacoco'
-
-task jacocoTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest') {
-
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-
-    def fileFilter = ['**/R.class', '**/R$*.class', '**/BuildConfig.*', '**/Manifest*.*', '**/*Test*.*', 'android/**/*.*']
-    def debugTree = fileTree(dir: "${buildDir}/intermediates/classes/debug", excludes: fileFilter)
-    def mainSrc = "${project.projectDir}/src/main/java"
-
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
     sourceDirectories = files([mainSrc])
     classDirectories = files([debugTree])
     executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+}
+
+jacoco {
+    toolVersion = "0.8.3"
 }
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
