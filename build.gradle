@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
+
 apply plugin: 'java'
 apply plugin: 'jacoco'
 
@@ -58,36 +58,3 @@ ext {
     mockitoVersion = "1.10.19"
 }
 test.finalizedBy jacocoTestReport
-*/
-
-apply plugin: 'java'
-apply plugin: 'jacoco'
-apply plugin: 'application'
-
-mainClassName = 'com.example.android.testing.unittesting.BasicSample'
-
-jar {
-    manifest {
-        attributes 'Main-Class' : 'com.example.android.testing.unittesting.BasicSample'
-    }
-    baseName = 'BasicSample'
-    version = '0.1.0'
-}
-
-repositories {
-    mavenCentral()
-    jcenter()
-    google()
-}
-
-dependencies {
-    compile 'org.slf4j:slf4j-api:1.7.13'
-
-    testCompile 'junit:junit:4.12'
-}
-
-ext {
-    buildToolsVersion = "28.0.3"
-    junitVersion = "4.12"
-    mockitoVersion = "1.10.19"
-}
