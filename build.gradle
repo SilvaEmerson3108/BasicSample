@@ -38,7 +38,7 @@ sonarqube {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        //classpath 'com.android.tools.build:gradle:3.2.0'
         compile 'com.google.guava:guava:21.0'
         testCompile 'junit:junit:4.12'
 
