@@ -14,19 +14,20 @@
  * limitations under the License.
  */
 
-apply plugin: 'java'
-apply plugin: 'jacoco'
-
-
-tasks.withType(Test) {
-    jacoco.includeNoLocationClasses = true
-  //  sourceDirectories = files([mainSrc])
-   // classDirectories = files([debugTree])
-   // executionData = files("${buildDir}/jacoco/testDebugUnitTest.exec")
+plugins {
+    id "jacoco"
+    id "java"
+    id "application"
+    id "org.sonarqube" version "2.7"
 }
 
-jacoco {
-    toolVersion = "0.8.3"
+description = 'Teste CI Android'
+version = '1.0'
+
+sonarqube {
+    properties {
+        property 'sonar.projectName', 'Teste CI Android'
+    }
 }
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -38,11 +39,15 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
+        compile 'com.google.guava:guava:21.0'
+        testCompile 'junit:junit:4.12'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
+
+mainClassName = 'org.gradle.sample.Main'
 
 allprojects {
     repositories {
@@ -57,4 +62,24 @@ ext {
     junitVersion = "4.12"
     mockitoVersion = "1.10.19"
 }
-test.finalizedBy jacocoTestReport
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            enabled = false
+            element = 'CLASS'
+            includes = ['org.gradle.*']
+
+            limit {
+                counter = 'LINE'
+                value = 'TOTALCOUNT'
+                maximum = 0.2
+            }
+        }
+    }
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
