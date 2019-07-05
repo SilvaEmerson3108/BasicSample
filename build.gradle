@@ -35,7 +35,7 @@ sonarqube {
     repositories {
         // Insert local test repo here
         jcenter()
-        google()
+        //google()
     }
     dependencies {
         //classpath 'com.android.tools.build:gradle:3.2.0'
